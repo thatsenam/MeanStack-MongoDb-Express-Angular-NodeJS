@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<h2>todos from node server (if data is not listed here make sure you started your node server [npm start]) </h2>
+<div>[
+  <div *ngFor="let todo of todos">
+    <pre> <i>{{ todo | json }} </i></pre>
+  </div>]
+</div>
