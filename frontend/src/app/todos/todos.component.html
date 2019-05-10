@@ -1,32 +1,39 @@
-<div class="container">
+<div class="container text-center">
   <div class="todos">
-    <div>
-      <form (submit)="addTodo($event)">
-        <input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
-        <button type="submit" [disabled]="newTodo===''">Add Todo</button>
+    <div id="input-container" class="input-group mb-3">
+      <form class="input-group mb-3" (submit)="addTodo($event)">
+        <input placeholder="new task" aria-label="new task" [(ngModel)]="newTodo" (keyup.enter)="newTodo=''"
+          class="form-control" name="newTodo" aria-describedby="add">
+        <div class="input-group-append">
+          <button id="add" class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="newTodo===''">Add
+            Todo</button>
+        </div>
       </form>
     </div>
-  
-    <div [hidden]="newTodo">
+
+
+
+
+    <!--  <div [hidden]="newTodo">
       Type in a new todo...
-    </div>
-  
+    </div> -->
+    <!-- 
     <div [hidden]="!newTodo">
-      <!-- Another two-way binding example -->
+     
       Typing: {{ newTodo }}
-    </div>
-  
-    <ul>
-      <li *ngFor="let todo of todos; let i=index">
-        <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
-        <span [ngClass]="{'checked': todo.completed}">{{ todo.newTodo }}</span>
-          <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
+    </div> -->
+
+    <ul class="list-group display-5 text-left">
+      <li class="list-group-item " *ngFor="let todo of todoList; let i=index">
+
+
+        <input id="{{ i }}" type="checkbox" class="cross" [(ngModel)]="todo.completed" />
+        <label for="{{ i }}"> <span [ngClass]="{'checked': todo.completed}">{{ todo.title }}</span>
+        </label> <span c (click)="deleteTodo(i)" class=" text-danger cross">[x]</span>
       </li>
     </ul>
-  
-    <div class="mtop20">
-      <button (click)="deleteSelectedTodos()">Delete Selected</button>
-    </div>
-  
+
+
+
   </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosList } from "../db/Google";
+import { Todo } from '../pojo/todo';
 
 @Component({
   selector: 'app-todos',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  ngOnInit(): void {
+
+  todoList: Todo[] = null
+  ngOnInit() {
 
   }
 
@@ -18,24 +22,31 @@ export class TodosComponent implements OnInit {
   constructor() {
     this.newTodo = '';
     this.todos = [];
+    this.todoList = TodosList()
   }
 
   addTodo(event) {
-    this.todoObj = {
-      newTodo: this.newTodo,
-      completed: false
+    let newOne: Todo = {
+      title: this.newTodo,
+      completed: false,
+      id: Math.random()
+      , userId: Math.random()
     }
     this.todos.push(this.todoObj);
+    this.todoList.unshift(newOne)
+
     this.newTodo = '';
     event.preventDefault();
   }
 
   deleteTodo(index) {
     this.todos.splice(index, 1);
+    this.todoList.splice(index, 1)
+    console.log(index, 'delete request')
   }
 
   deleteSelectedTodos() {
- 
+
     for (var i = (this.todos.length - 1); i > -1; i--) {
       if (this.todos[i].completed) {
         this.todos.splice(i, 1);
