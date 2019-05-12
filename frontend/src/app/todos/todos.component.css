@@ -13,6 +13,6 @@
   color: brown;
 }
 .checked {
-  color: grey;
+  color: rgb(202, 199, 199);
   text-decoration: line-through;
 }

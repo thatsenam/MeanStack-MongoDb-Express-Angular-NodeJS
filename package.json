@@ -1,0 +1,20 @@
+{
+  "name": "MeanStack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd frontend && npm start && cd .. && cd backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatsenam/MeanStack-MongoDb-Express-Angular-NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatsenam/MeanStack-MongoDb-Express-Angular-NodeJS/issues"
+  },
+  "homepage": "https://github.com/thatsenam/MeanStack-MongoDb-Express-Angular-NodeJS#readme"
+}

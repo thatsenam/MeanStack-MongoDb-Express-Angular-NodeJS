@@ -8,4 +8,4 @@ let obserber = Observable.create((observer) => {
 obserber.subscribe((data) => {
     console.log('Recived data ' + data)
 })
-of([80,8,9,25,63,4,2,5,7,8,52,5,4,5,25,65,5,5]).
+
